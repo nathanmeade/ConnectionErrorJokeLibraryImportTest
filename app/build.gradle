@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.meadetechnologies.connectionerrorjokelibraryimporttest'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.meadetechnologies.connectionerrorjokelibraryimporttest"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // jitpack:
+//    implementation 'com.github.nathanmeade:ConnectionErrorJoke:v1.0.7'
+    // maven central:
+    implementation 'io.github.nathanmeade.connectionerrorjoke:connectionerrorjoke:1.0.0'
+    implementation 'io.github.nathanmeade.connectionerrorjoke:connectionerrorknockknockjokes:1.0.0'
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    androidTestImplementation 'com.google.truth:truth:1.0.1', { exclude group: 'com.google.guava', module:'listenablefuture'}
+    api 'com.google.guava:listenablefuture:1.0'
+    androidTestImplementation "org.robolectric:robolectric:4.2.1", { exclude group: 'com.google.guava', module:'listenablefuture'}
+    api 'com.google.guava:listenablefuture:1.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:core:1.5.0'
+}
